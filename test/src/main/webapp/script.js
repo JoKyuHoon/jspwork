@@ -1,0 +1,3 @@
+function inputCheck() {
+	regForm.submit();
+}
