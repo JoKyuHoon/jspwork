@@ -21,7 +21,7 @@
 </style>
 
 <script src="script.js?v=<%= System.currentTimeMillis() %>"></script>
-<!-- api로 주소 가져오기 -->
+<!-- DAUM API로 주소 가져오기 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function findAddr() {
@@ -56,10 +56,10 @@ function findAddr() {
 </script>
 </head>
 <body>
-	<form name="frm" method="post" action="MemberProc.jsp">
+	<form name="frm" method="post" action="memberProc.jsp">
 		<table align="center">
 			<tr bgcolor="#8c6791">
-	
+
 			<th colspan="3">회 원 가 입</th>
 		</tr>
 		<tr>
@@ -128,19 +128,19 @@ function findAddr() {
 			<td>상세주소가 있으면 입력해주세요</td>	
 		</tr>
 		<tr>
-				<td>취미</td>
-				<td>
-					<input type="checkbox" name="hobby" value="인터넷" checked>인터넷&nbsp;
-					<input type="checkbox" name="hobby" value="여행">여행&nbsp;
-					<input type="checkbox" name="hobby" value="게임">게임&nbsp;
-					<input type="checkbox" name="hobby" value="영화">영화&nbsp;
-					<input type="checkbox" name="hobby" value="운동">운동
-				</td>
-				<td>취미를 선택하세요</td>
-			</tr>
+			<td>취미</td>
+			<td>
+				<input type="checkbox" name="hobby" value="인터넷" checked>인터넷&nbsp;
+				<input type="checkbox" name="hobby" value="여행">여행&nbsp;
+				<input type="checkbox" name="hobby" value="게임">게임&nbsp;
+				<input type="checkbox" name="hobby" value="영화">영화&nbsp;
+				<input type="checkbox" name="hobby" value="운동">운동
+			</td>
+			<td>취미를 선택하세요</td>
+		</tr>
 		
 		<tr>
-				<td>직업</td>
+			<td>직업</td>
 				<td>
 					<select name="job">
 						<option value="0" selected>선택하세요.
@@ -153,13 +153,13 @@ function findAddr() {
 						<option value="기타">기타
 					</select>
 				</td>
-				<td>직업을 선택하세요</td>
+			<td>직업을 선택하세요</td>
 			</tr>
 		<tr>
 			<td colspan="3" align="center">
 				<input type="button" value="회원가입" onclick="inputCheck();">&emsp;
 				<input type="reset" value="다시쓰기">&emsp;
-				<input type="button" value="로그인">
+				<input type="button" value="로그인" onclick="location.href='login.jsp'">
 			</td>
 		</tr>
 	</form>
