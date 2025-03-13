@@ -34,5 +34,5 @@ function inputCheck() {
 		frm.name.focus();
 		return;
 	}
-	frm.submit();
+	frm.submit(); // 회원가입 button이기 때문에 반드시 해줘야 서버로 넘어감.
 }
