@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <style>
-	body {background-color : #E7EDEC;}
+	body {background-color : #fcf5fc;}
 </style>
 </head>
 <body>

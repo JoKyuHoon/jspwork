@@ -9,29 +9,42 @@ public class MemberDao {
 	ResultSet rs = null;
 	String sql = null;
 	
-	public boolean checkId(String id) {
+	public boolean loginMember(String id, String pwd) {
 		boolean flag = false;
 		try {
 			con = pool.getConnection();
-			sql = "select id from member where id=?"; // 사용자가 입력한 id와 pwd를 가져오는데 그 중에 id만
+			sql = "select id from member where id=? and pwd=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();
-			flag = rs.next();  // id 와 pwd 가 맞으면 true, 다르면 false 반환 (boolean)
-				
-			
+			flag = rs.next();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
-		
+	}
+	
+	public boolean checkId(String id) {
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "select id from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			flag = rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 	
 	public boolean insertMember(Member mbean) {
 		boolean flag = false;
 		try {
 			con = pool.getConnection();
-			sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?)"; // 사용자가 입력한 id와 pwd를 가져오는데 그 중에 id만
+			sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mbean.getId());
 			pstmt.setString(2, mbean.getPwd());
@@ -42,16 +55,15 @@ public class MemberDao {
 			pstmt.setString(7, mbean.getZipcode());
 			pstmt.setString(8, mbean.getAddress());
 			pstmt.setString(9, mbean.getDetailaddress());
-			pstmt.setString(10, String.join(" ", mbean.getHobby()));			
+			pstmt.setString(10, String.join(" ", mbean.getHobby()));
 			pstmt.setString(11, mbean.getJob());
-			//pstmt.executeUpdate();   // 반환값 : 업데이트 성공시 1, 아닐시 0
-			if(pstmt.executeUpdate()==1)
-				flag = true;
+			
+			if(pstmt.executeUpdate() == 1)  // executeUpdate() : update가 잘 되었으면 1반환, 안됐으면 0반환
+				flag = true;	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
-		
 	}
 	
 }
