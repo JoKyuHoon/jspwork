@@ -7,7 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
+<style>
+	body {background-color : #E7EDEC;}
+</style>
 </head>
 <body>
 <% if(id != null) { %>
@@ -15,8 +18,8 @@
 	<a href="logout.jsp">로그아웃</a>
 <% } else { %>
 
-<form action="loginProc.jsp" method="post" align="center">
-	<table border="1">
+<form action="loginProc.jsp" method="post">
+	<table align="center">
 		<tr>
 			<td colspan="2" align="center"><h2>로그인</h2></td>
 		</tr>
