@@ -9,7 +9,7 @@
 <title>설문 작성</title>
 <style>
 	* {margin: 0 auto;}
-	div {width: 500px;}
+	div {width: 600px;}
 	h2{text-align: center;}
 	.m30{margin-top: 30px;}
 </style>
@@ -22,10 +22,10 @@
 	<h5 class="m30">설문작성</h5>
 	<hr>
 	<form action="voteInsertProc.jsp" method="post">
-		<table class="table">
+		<table class="table table-striped">
 			<tr>
 				<td width="10%">질문</td>
-				<td colspan="2">q:<input name="question"></td>
+				<td colspan="2"><input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>
 			</tr>
 			<tr>
 			<!--
@@ -52,8 +52,8 @@
 				<%
 				for(int i=1; i<=4; i++) {
 					
-					out.print("<td>" + (i*2-1) + ":<input name='item'></td>");
-					out.print("<td>" + i*2 + ":<input name='item'></td>");
+					out.print("<td>" + (i*2-1) + ":<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
+					out.print("<td>" + i*2 + ":<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
 					out.print("</tr>");
 					if(i<4){
 					out.print("<tr>");
@@ -64,7 +64,7 @@
 				<tr>
 					<td>시작일</td>
 					<td>
-						<select name="sdateY">
+						<select name="sdateY" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=2025; i<=2035; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -73,7 +73,7 @@
 						</select>년	
 						
 					
-					<select name="sdateM">
+					<select name="sdateM" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=1; i<=12; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -82,7 +82,7 @@
 						</select>월
 					
 				
-					<select name="sdateD">
+					<select name="sdateD" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=1; i<=31; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -95,7 +95,7 @@
 				<tr>
 					<td>종료일</td>
 					<td>
-						<select name="edateY">
+						<select name="edateY" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=2025; i<=2035; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -104,7 +104,7 @@
 						</select>년	
 						
 					
-					<select name="edateM">
+					<select name="edateM" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=1; i<=12; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -113,7 +113,7 @@
 						</select>월
 					
 				
-					<select name="edateD">
+					<select name="edateD" class="form-select-sm" aria-label="Default select example">
 						<%
 						for(int i=1; i<=31; i++){
 							out.print("<option value='" + i + "'>" + i + "</option>");
@@ -133,9 +133,9 @@
 				
 				<tr>
 					<td colspan="3" align="center">
-						<input type="submit" value="작성하기">&emsp;
-						<input type="reset" value="다시쓰기">&emsp;
-						<input type="button" value="목록보기" onclick="location.href='voteList.jsp'">
+						<input type="submit" class="btn btn-success" value="작성하기">&emsp;
+						<input type="reset" class="btn btn-secondary" value="다시쓰기">&emsp;
+						<input type="button"  class="btn btn-success" value="목록보기" onclick="location.href='voteList.jsp'">
 					</td>
 				</tr>
 		</table>
