@@ -52,8 +52,8 @@
 				<%
 				for(int i=1; i<=4; i++) {
 					
-					out.print("<td>" + (i*2-1) + ":<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
-					out.print("<td>" + i*2 + ":<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
+					out.print("<td>" + /*(i*2-1) +*/ "<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
+					out.print("<td>" + /*i*2 +*/ "<input name='item' class='form-control' placeholder='입력' aria-label='Username' aria-describedby='addon-wrapping'></td>");
 					out.print("</tr>");
 					if(i<4){
 					out.print("<tr>");
