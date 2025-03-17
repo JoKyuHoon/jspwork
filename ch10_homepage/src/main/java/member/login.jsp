@@ -16,7 +16,6 @@
 <% if(id != null) { %>
 	<b><%=id %>님 환영합니다</b>
 	<a href="logout.jsp">로그아웃</a>
-	<a href="../index.jsp">홈으로</a>
 <% } else { %>
 
 <form action="loginProc.jsp" method="post">
