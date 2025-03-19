@@ -11,17 +11,15 @@ public class Member {
 	private String email;
 	private String zipcode;
 	private String address;
-	private String detailaddress;
+	private String detail_address;
 	private String[] hobby;
 	private String job;
 	
 	public Member() {
-		
 	}
 
 	public Member(String id, String pwd, String name, String gender, String birthday, String email, String zipcode,
-			String address, String detailaddress, String[] hobby, String job) {
-		super();
+			String address, String detail_address, String[] hobby, String job) {
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
@@ -30,16 +28,9 @@ public class Member {
 		this.email = email;
 		this.zipcode = zipcode;
 		this.address = address;
-		this.detailaddress = detailaddress;
+		this.detail_address = detail_address;
 		this.hobby = hobby;
 		this.job = job;
-	}
-
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
-				+ ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + ", detailaddress="
-				+ detailaddress + ", hobby=" + Arrays.toString(hobby) + ", job=" + job + "]";
 	}
 
 	public String getId() {
@@ -106,12 +97,12 @@ public class Member {
 		this.address = address;
 	}
 
-	public String getDetailaddress() {
-		return detailaddress;
+	public String getDetail_address() {
+		return detail_address;
 	}
 
-	public void setDetailaddress(String detailaddress) {
-		this.detailaddress = detailaddress;
+	public void setDetail_address(String detail_address) {
+		this.detail_address = detail_address;
 	}
 
 	public String[] getHobby() {
@@ -129,8 +120,11 @@ public class Member {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	
-	
 
-
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
+				+ ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + ", detail_address="
+				+ detail_address + ", hobby=" + Arrays.toString(hobby) + ", job=" + job + "]";
+	}
 }

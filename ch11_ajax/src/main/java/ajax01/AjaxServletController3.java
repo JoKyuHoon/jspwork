@@ -10,13 +10,10 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-
 public class AjaxServletController3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
 		
@@ -62,5 +59,4 @@ public class AjaxServletController3 extends HttpServlet {
 		response.setContentType("application/json");
 		response.getWriter().print(jObj);
 	}
-
 }

@@ -13,6 +13,7 @@ public class AjaxController1 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String str = request.getParameter("input");
+		System.out.println(str);
 		
 		String responseDate = "입력된 값 : " + str + ", 길이 : " + str.length();
 		

@@ -1,8 +1,6 @@
 package ajax01;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class MemberDao {
@@ -24,11 +22,13 @@ public class MemberDao {
 			flag = rs.next();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
 		}
 		return flag;
 	}
 	
-	public boolean checkId(String id) {
+	public boolean chickId(String id) {
 		boolean flag = false;
 		try {
 			con = pool.getConnection();
@@ -39,6 +39,8 @@ public class MemberDao {
 			flag = rs.next();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
 		}
 		return flag;
 	}
@@ -57,7 +59,7 @@ public class MemberDao {
 			pstmt.setString(6, mbean.getEmail());
 			pstmt.setString(7, mbean.getZipcode());
 			pstmt.setString(8, mbean.getAddress());
-			pstmt.setString(9, mbean.getDetailaddress());
+			pstmt.setString(9, mbean.getDetail_address());
 			pstmt.setString(10, String.join(" ", mbean.getHobby()));
 			pstmt.setString(11, mbean.getJob());
 			
@@ -65,71 +67,56 @@ public class MemberDao {
 				flag = true;	
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
 		}
 		return flag;
 	}
 	
 	// id에 해당하는 데이터 얻어오기(1행)
-	
 	public Member getMember(String id) {
-	    Member bean = new Member();
-	    try {
-	    	sql = "SELECT * FROM member WHERE id = ?";  // id에 해당하는 데이터를 가져오는 SELECT 문
-	    	con = pool.getConnection();
-	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, id);  // SQL에서 id 값을 바인딩
-	        rs = pstmt.executeQuery();  // 결과 실행
-	        
-	        if (rs.next()) {  // 결과가 있으면
-	        	bean = new Member();
-	        	bean.setId(rs.getString("id"));  // id
-	        	bean.setName(rs.getString("name"));  // name
-	        	bean.setGender(rs.getString("gender"));  // gender
-	        	bean.setEmail(rs.getString("email"));  // gender
-	        
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } 
-	    return bean;  // Member 객체 반환
+		Member bean = new Member();
+		try {
+			con = pool.getConnection();
+			sql = "select id, name, gender, email from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				bean.setId(rs.getString(1));
+				bean.setName(rs.getString(2));
+				bean.setGender(rs.getString(3));
+				bean.setEmail(rs.getString(4));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return bean;
 	}
-
 	
-	
-	// 전체 member 데이터 가져오기
+	// 전체 member데이터 가져오기
 	public ArrayList<Member> getAllMember() {
-	    ArrayList<Member> alist = new ArrayList<Member>();  // 결과를 저장할 ArrayList 생성
-	    try {
-	        sql = "SELECT * FROM member";  // 모든 데이터를 가져오는 SQL 쿼리
-	        con = pool.getConnection();
-	        pstmt = con.prepareStatement(sql);  // 쿼리 준비
-	        rs = pstmt.executeQuery();  // 쿼리 실행
-	        
-	        while (rs.next()) {  // 결과가 있을 때마다 반복
-	            Member bean = new Member();  // 새로운 Member 객체 생성
-	            bean.setId(rs.getString("id"));  // id 값 설정
-	            bean.setName(rs.getString("name"));  // name 값 설정
-	            bean.setGender(rs.getString("gender"));  // gender 값 설정
-	            bean.setEmail(rs.getString("email"));  // email 값 설정
-	            // 필요한 다른 필드들도 추가적으로 설정 가능
-	            alist.add(bean);  // Member 객체를 리스트에 추가
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        // 자원 해제
-	        try {
-	            if (rs != null) rs.close();
-	            if (pstmt != null) pstmt.close();
-	            if (con != null) con.close();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    return alist;  // 결과로 ArrayList 반환
+		ArrayList<Member> alist = new ArrayList<Member>();
+		try {
+			con = pool.getConnection();
+			sql = "select * from member";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Member bean = new Member();
+				bean.setId(rs.getString("id"));
+				bean.setName(rs.getString("name"));
+				bean.setGender(rs.getString("gender"));
+				bean.setEmail(rs.getString("email"));
+				alist.add(bean);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return alist;
 	}
-
-	
-	
-	
 }

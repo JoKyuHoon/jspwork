@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="5.0">
-  <display-name>ch11_ajax</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
   <servlet>
     <description></description>
     <display-name>AjaxController1</display-name>
@@ -9,17 +8,26 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxController1</servlet-name>
-    <url-pattern>/ajax1.do</url-pattern>
+    <url-pattern>/ajax01/ajax1.do</url-pattern>
   </servlet-mapping>
+  <display-name>ch11_ajax</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>AjaxServletIdCheck</display-name>
     <servlet-name>AjaxServletIdCheck</servlet-name>
-    <servlet-class>ajax01.AjaxidServletIdCheck</servlet-class>
+    <servlet-class>ajax01.AjaxServletIdCheck</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxServletIdCheck</servlet-name>
-    <url-pattern>/idCheck.me</url-pattern>
+    <url-pattern>/ajax01/idCheck.me</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -29,16 +37,46 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxServletController3</servlet-name>
-    <url-pattern>/ajax3.do</url-pattern>
+    <url-pattern>/ajax01/ajax3.do</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AjaxServletContoller4</display-name>
-    <servlet-name>AjaxServletContoller4</servlet-name>
-    <servlet-class>ajax01.AjaxServletContoller4</servlet-class>
+    <display-name>AjaxServletController4</display-name>
+    <servlet-name>AjaxServletController4</servlet-name>
+    <servlet-class>ajax01.AjaxServletController4</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AjaxServletContoller4</servlet-name>
-    <url-pattern>/ajax4.do</url-pattern>
+    <servlet-name>AjaxServletController4</servlet-name>
+    <url-pattern>/ajax01/ajax4.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletController5</display-name>
+    <servlet-name>AjaxServletController5</servlet-name>
+    <servlet-class>ajax01.AjaxServletController5</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletController5</servlet-name>
+    <url-pattern>/ajax01/ajax5.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletReplyList</display-name>
+    <servlet-name>AjaxServletReplyList</servlet-name>
+    <servlet-class>ajaxReply.AjaxServletReplyList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletReplyList</servlet-name>
+    <url-pattern>/ajaxReply/rlist.bo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletReplyInsert</display-name>
+    <servlet-name>AjaxServletReplyInsert</servlet-name>
+    <servlet-class>ajaxReply.AjaxServletReplyInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletReplyInsert</servlet-name>
+    <url-pattern>/ajaxReply/rInsert.bo</url-pattern>
   </servlet-mapping>
 </web-app>

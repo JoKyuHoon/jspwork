@@ -9,18 +9,15 @@ import java.io.IOException;
 
 public class AjaxServletIdCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String checkId = request.getParameter("checkId");
-		MemberDao mDao = new MemberDao();
-		boolean result = mDao.checkId(checkId);
+		boolean result = new MemberDao().chickId(checkId);
+		
 		if(result) {
 			response.getWriter().print("idN");
 		} else {
 			response.getWriter().print("idY");
 		}
-		
 	}
-
-
 }
