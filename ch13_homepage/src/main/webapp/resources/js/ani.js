@@ -20,7 +20,7 @@ $(() => {
     setInterval(slide, 2000);
 
     // x= [img1, img2, img3]
-    let x = $('#imgslide>img');
+    let x = $('.slider slide');
     let y = 3;
     function slide() {
         y--;

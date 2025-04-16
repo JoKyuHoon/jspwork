@@ -39,11 +39,13 @@
 		</div>
 	</header>
 	 <article id="content">
-        <section id="imgslide">
-                <img src="resources/img/slide1.jpg" alt="여행사진1">
-                <img src="resources/img/slide2.jpg" alt="여행사진2">
-                <img src="resources/img/slide3.jpg" alt="여행사진3">
-        </section>
+       <section id="imgslide">
+  		  <div class="slider">
+       		     <div class="slide"><img src="resources/img/slide1.jpg" alt="여행사진1"></div>
+        		 <div class="slide"><img src="resources/img/slide2.jpg" alt="여행사진2"></div>
+       		     <div class="slide"><img src="resources/img/slide3.jpg" alt="여행사진3"></div>  
+          </div>
+	   </section>
      </article>
 </body>
 </html>
